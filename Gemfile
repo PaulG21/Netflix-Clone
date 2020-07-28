@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'jquery-rails'
 ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -42,7 +43,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'annotate'
   gem 'bcrypt'
-  gem 'jquery-rails'
+  
 
 end
 
