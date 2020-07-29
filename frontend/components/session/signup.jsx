@@ -1,11 +1,11 @@
 import React from 'react';
 
-class Signup extends React.Component {
+export default class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      username = "",
-      emai = "",
+      username: "",
+      email: "",
       password: "",
     };
 
@@ -21,7 +21,6 @@ class Signup extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createNewUser(this.state)
-      .then(() => this.props.history.push('/browse') // Might have to change later 
   }
 
   render() {
