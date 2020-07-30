@@ -12,19 +12,13 @@ const logoutCurrentUser = () => ({
   type: LOGOUT_CURRENT_USER,
 });
 
-export const createNewUser = user => dispatch => SessionUtil.signup(user)
-  .then(user => dispatch(receiveCurrentUser(user)));
+export const signup = user => dispatch => {
+  debugger
+  return SessionUtil.signup(user)
+  .then(user => dispatch(receiveCurrentUser(user)))};
 
 export const login = user => dispatch => SessionUtil.login(user)
   .then(user => dispatch(receiveCurrentUser(user)));
 
-export const logout = () => dispatch => {
-  // debugger;
-  return SessionUtil.logout()
-  .then(
-    () => dispatch(logoutCurrentUser()),
-    (response) => {
-      // debugger
-    }
-  )
-};
+export const logout = () => dispatch => SessionUtil.logout()
+  .then(() => dispatch(logoutCurrentUser()));

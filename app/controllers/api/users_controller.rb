@@ -1,8 +1,9 @@
 class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
-
-    if @user.save
+    debugger
+    if @user.save!
+      debugger
       login(@user)
       render :show
     else

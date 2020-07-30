@@ -14,13 +14,14 @@ export default class Signup extends React.Component {
 
   handleInput(type) {
     return (e) => {
-      this.setState({ [type]: e.target.value });
+      this.setState({ [type]: e.currentTarget.value });
     };
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createNewUser(this.state)
+    debugger
+    this.props.signup(this.state)
   }
 
   render() {
