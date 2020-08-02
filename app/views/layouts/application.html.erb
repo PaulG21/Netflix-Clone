@@ -4,6 +4,11 @@
     <title>NetflixClone</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    
+    <script type="text/javascript">
+      window.netflix_background = "<%= image_url('netflix_background') %>";
+      window.netflix_logo = "<%= image_url('netflix_logo') %>";
+    </script>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
@@ -17,7 +22,6 @@
       </script>
       <% end %>
   </head>
-
   <body>
     <%= yield %>
   </body>

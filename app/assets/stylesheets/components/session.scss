@@ -1,0 +1,85 @@
+.session-top-container {
+  display: flex;
+  background-size: cover;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: image_url("netflix_background.jpg") ;
+  // min-width: 100vh;
+  position: relative;
+  // justify-content: center;
+  align-items: center;
+}
+
+.session-top-container::before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  opacity: 0.66;
+  background-color: black;
+}
+
+.netflix-logo-session-form {
+  width: 140px;
+  height: 45px;
+  filter: brightness(96%);
+}
+
+.session-form {
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 84.5px;
+  background-color: black;
+  height: 654px;
+  width: 451px;
+  padding: 60px 68px 40px;
+}
+
+.session-input {
+  height: 100%;
+  width: 100%;
+  background: lightblue;
+}
+
+.email-input-box, .password-input-box {
+  background-color: #333;
+  border: none;
+  padding: 16px;
+  outline: none;
+  margin: 10px;
+  position: relative;
+  width: 90%;
+  border-radius: 3px;
+}
+
+.email-label, .password-label  {
+  color: #8c8c8c;
+  position: absolute;
+}
+
+.form-title {
+  color: #fff;
+  margin-bottom: 28px;
+  font-size: 32px;;
+}
+
+.submit-button, .demo-button-session {
+  color:white;
+  display: block;
+  background-color: #e50916;
+  padding: 7px 17px;
+  font-size: 0.95rem;
+  text-align: center;
+  border-radius: 3px;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  border: none;
+}
+
+// 315 47

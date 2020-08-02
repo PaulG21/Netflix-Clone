@@ -1,0 +1,102 @@
+.splash-top-container {
+  display: flex;
+  background-size: cover;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: image_url("netflix_background.jpg") ;
+  min-width: 100vh;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-top-container::before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  opacity: 0.66;
+  background-color: black;
+}
+
+.splash-header {
+  display: flex;
+  justify-content: space-between;
+  width: 91.5%;
+  position: absolute;
+  top: 22px;
+  align-items: center;
+}
+
+.signin-button {
+  font-weight: lighter;
+}
+
+.netflix-logo {
+  position: relative;
+  width: 140px;
+  height: 45px;
+  top: 0px;
+  filter: brightness(96%);
+}
+
+.btn-splash-container{
+  display: flex;
+  justify-content: space-between;
+  width: 20rem;
+}
+
+.btn-splash {
+  color:white;
+  display: block;
+  background-color: #e50916;
+  line-height: normal;
+  padding: 7px 17px;
+  font-size: 0.95rem;
+  text-align: center;
+  border-radius: 3px;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  border: none;
+}
+
+
+.splash-card {
+  color: white;
+  font-family: Arial, sans-serif;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  position: relative;
+  top: 30px;
+}
+
+.splash-card-title {
+  font-size: 3.125rem;
+  text-align: center;
+}
+
+.splash-card-subtitle {
+  font-size: 1.625rem;
+  margin: 1rem auto;
+  font-weight: normal;
+}
+
+.splash-card-subtext {
+  margin-bottom: 1.7rem;
+  font-weight: lighter;
+}
+
+.signup-button {
+  width: 130px;
+  height: 41px;
+}
+
+.demo-button {
+  width: 105px;
+}
