@@ -29,47 +29,68 @@ export default class SessionForm extends React.Component {
     return this.props.login(demoUser)
   };
 
+
   render() {
-    const username = (<label>Username:
-            <input
-        type='text'
-        value={this.state.username}
-        onChange={this.handleInput('username')}
-      />
-    </label>);
+    const username = (
+      <div className='username-container'>
+        <input
+          type='text'
+          value={this.state.username}
+          onChange={this.handleInput('username')}
+          className='username-input-box'
+          placeholder='username'
+          />
+          <label className='username-label'>Username</label>
+      </div>);
+
+    const loginTag = (
+      <a className='tag' href="#/login">Login now</a>
+    );
+
+    const signupTag = (
+      <a className='tag' href="#/signup">Sign up now</a>
+    );
 
     const {formType} = this.props
 
     return (
       <div className='session-top-container'> 
         <div className='splash-header'>
+          <a href="#/">
           <img src={window.netflix_logo} className='netflix-logo-session-form' />
+          </a>
         </div>
         <form className='session-form' onSubmit={this.handleSubmit}>
           <div className='session-input'>
               <h2 className='form-title'>{formType}</h2>
               {formType === 'Sign Up' ? username : null}
               <div className='email-container'>
-                <label className="email-label">Email</label>
                 <input
                   type='text'
                   value={this.state.email}
                   onChange={this.handleInput('email')}
                   className="email-input-box"
+                  placeholder="email"
                 />
+                <label className="email-label">Email</label>
               </div>
               <div className='password-container'>
-                <label className="password-label">Password</label>
                 <input
                   type='password'
                   value={this.state.password}
                   onChange={this.handleInput('password')}
                   className='password-input-box'
+                  placeholder='password'
                 />
+                <label className="password-label">Password</label>
               </div>
-              <div className='btn-session'>
+              <div className='btn-session-container'>
               <button className='submit-button' type='submit' value={formType}>{formType}</button>
               <button className='demo-button-session' onClick={this.handleDemo}>Demo</button>
+            </div>
+            <div className="bottom-text-container">
+              <div className='bottom-text'>{formType === 'Sign Up' ? 'Already a Member?' : 'New to Netflix?' }</div>
+              {formType === 'Sign Up' ? loginTag : signupTag }
             </div>
           </div>
         </form>

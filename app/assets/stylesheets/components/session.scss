@@ -2,12 +2,13 @@
   display: flex;
   background-size: cover;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 125vh;
   background-image: image_url("netflix_background.jpg") ;
   // min-width: 100vh;
   position: relative;
   // justify-content: center;
   align-items: center;
+  height: 1100px;
 }
 
 .session-top-container::before {
@@ -18,7 +19,7 @@
   top: 0;
   left: 0;
   position: absolute;
-  opacity: 0.66;
+  opacity: 0.60;
   background-color: black;
 }
 
@@ -35,7 +36,7 @@
   flex-direction: column;
   position: relative;
   top: 84.5px;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.690);
   height: 654px;
   width: 451px;
   padding: 60px 68px 40px;
@@ -44,23 +45,34 @@
 .session-input {
   height: 100%;
   width: 100%;
-  background: lightblue;
+  // background: lightblue;
 }
 
-.email-input-box, .password-input-box {
+.email-input-box, .password-input-box , .username-input-box {
   background-color: #333;
   border: none;
-  padding: 16px;
   outline: none;
-  margin: 10px;
-  position: relative;
-  width: 90%;
-  border-radius: 3px;
+  width: 97%;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 17px;
+  padding: 24px 21px 10px;
+  color: white;
 }
 
-.email-label, .password-label  {
+.email-label, .password-label, .username-label {
   color: #8c8c8c;
   position: absolute;
+  font-size: 16px;
+  transform: translate(0, 16px) scale(1);
+  transition: all .1s ease-in-out;
+  transform-origin: top left;
+  pointer-events: none;
+  display: block;
+  top: 0;
+  margin-top: 1.5px;
+  left: 20px;
+  font-weight: lighter;
 }
 
 .form-title {
@@ -74,12 +86,82 @@
   display: block;
   background-color: #e50916;
   padding: 7px 17px;
-  font-size: 0.95rem;
+  font-size: 1rem;
   text-align: center;
   border-radius: 3px;
   font-family: Arial, Helvetica, sans-serif;
   cursor: pointer;
   border: none;
+  width: 100%;
+  height: 47px;
+  margin-top: 22px;
 }
 
-// 315 47
+.email-container, .password-container, .username-container {
+  position: relative;
+}
+
+.email-input-box:focus-within + label, .email-input-box:not(:placeholder-shown) + label {
+  transform: translate(0, 4px) scale(.75);
+}
+
+.password-input-box:focus-within + label, .password-input-box:not(:placeholder-shown) + label {
+  transform: translate(0, 4px) scale(.75);
+}
+
+.username-input-box:focus-within + label, .username-input-box:not(:placeholder-shown) + label {
+  transform: translate(0, 4px) scale(.75);
+}
+
+::placeholder {
+  color: transparent;
+}
+
+.email-input-box:focus {
+  background: rgb(59, 59, 59);
+}
+
+.password-input-box:focus {
+  background: rgb(59, 59, 59);
+}
+
+.username-input-box:focus {
+  background: rgb(59, 59, 59);
+}
+
+.btn-session-container {
+  width: 97%;
+  display: flex;
+  flex-direction: column;
+  height: 138px;
+}
+
+.bottom-text-container {
+  top: 20px;
+  display: flex;
+  position: relative;
+}
+
+.bottom-text {
+  margin-left: 6px;
+  color: #737373;
+}
+
+.tag {
+  margin-left: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.tag:hover {
+  text-decoration: underline;
+}
+
+.session-top-container::after {
+  content: '';
+  background-color: rgba(0, 0, 0, 0.690);
+  height: 21.5%;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
