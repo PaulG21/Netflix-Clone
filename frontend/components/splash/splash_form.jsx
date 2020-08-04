@@ -21,7 +21,7 @@ class Splash extends React.Component {
     return (
       <div className='splash-top-container'>
         <div className='splash-header'>
-          <img src={window.netflix_logo} className="netflix-logo" />
+          <img src={window.netflix_logo} className="netflix-logo"/>
           <button className='signin-button btn-splash' onClick={event => window.location.href = '/#/login'}>Sign In</button>
         </div>
         <div className='splash-card'>
