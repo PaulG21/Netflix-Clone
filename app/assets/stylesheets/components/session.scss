@@ -1,0 +1,198 @@
+.session-top-container {
+  display: flex;
+  background-size: cover;
+  flex-direction: column;
+  min-height: 125vh;
+  background-image: image_url("netflix_background.jpg") ;
+  position: relative;
+  align-items: center;
+  height: 1100px;
+}
+
+.session-top-container::before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  opacity: 0.60;
+  background-color: black;
+}
+
+.session-header {
+  display: flex;
+  justify-content: space-between;
+  width: 94.5%;
+  position: absolute;
+  top: 18px;
+  align-items: center;
+}
+
+.netflix-logo-session-form {
+  width: 176px;
+  height: 57px;
+  filter: brightness(96%);
+}
+
+.session-form {
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 84.5px;
+  background-color: rgba(0, 0, 0, 0.690);
+  height: 654px;
+  width: 451px;
+  padding: 60px 68px 40px;
+}
+
+.session-input {
+  height: 100%;
+  width: 100%;
+}
+
+.email-input-box, .password-input-box , .username-input-box {
+  background-color: #333;
+  border: none;
+  outline: none;
+  width: 97%;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 24px 21px 10px;
+  color: white;
+  //test
+  margin-top: 16px;
+}
+
+
+
+.email-label, .password-label, .username-label {
+  color: #8c8c8c;
+  position: absolute;
+  font-size: 16px;
+  transform: translate(0, 16px) scale(1);
+  transition: all .1s ease-in-out;
+  transform-origin: top left;
+  pointer-events: none;
+  display: block;
+  top: 16px;
+  margin-top: 1.5px;
+  left: 20px;
+  font-weight: lighter;
+}
+
+.form-title {
+  color: #fff;
+  margin-bottom: 12px;
+  font-size: 32px;;
+}
+
+.submit-button, .demo-button-session {
+  color:white;
+  display: block;
+  background-color: #e50916;
+  padding: 7px 17px;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 3px;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  height: 47px;
+  margin-top: 22px;
+}
+
+.email-container, .password-container, .username-container {
+  position: relative;
+}
+
+.email-input-box:focus-within + label, .email-input-box:not(:placeholder-shown) + label {
+  transform: translate(0, 4px) scale(.75);
+}
+
+.password-input-box:focus-within + label, .password-input-box:not(:placeholder-shown) + label {
+  transform: translate(0, 4px) scale(.75);
+}
+
+.username-input-box:focus-within + label, .username-input-box:not(:placeholder-shown) + label {
+  transform: translate(0, 4px) scale(.75);
+}
+
+::placeholder {
+  color: transparent;
+}
+
+.email-input-box:focus {
+  background: rgb(59, 59, 59);
+}
+
+.password-input-box:focus {
+  background: rgb(59, 59, 59);
+}
+
+.username-input-box:focus {
+  background: rgb(59, 59, 59);
+}
+
+.btn-session-container {
+  width: 97%;
+  display: flex;
+  flex-direction: column;
+  height: 138px;
+}
+
+.bottom-text-container {
+  top: 20px;
+  display: flex;
+  position: relative;
+}
+
+.bottom-text {
+  margin-left: 6px;
+  color: #737373;
+}
+
+.tag {
+  margin-left: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.tag:hover {
+  text-decoration: underline;
+}
+
+.session-top-container::after {
+  content: '';
+  background-color: rgba(0, 0, 0, 0.690);
+  height: 21.5%;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
+
+.error-email-container::after, .error-password-container::after, .error-username-container::after {
+ content: '';
+  border-bottom: 2.5px solid #e87c03;
+  height: 7px;
+  width: 97%;
+  top: 61.4%;
+  position: absolute;
+  display: block;
+  border-radius: 4px;
+}
+
+.error-email, .error-password, .error-username{
+  color: #e87c03;
+  margin-bottom: -6px;
+  padding: 6px 3px;
+  display: flex;
+  position: relative;
+  margin-top: 1px;
+  font-size: 13px;
+  font-weight: lighter;
+}
