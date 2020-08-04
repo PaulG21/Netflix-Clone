@@ -2,6 +2,8 @@ import * as SessionUtil from '../util/session'
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER =  'LOGOUT_CURRENT_USER';
+export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+export const CLEAR_SESSION_ERRORS = 'CLEAR_SESSION_ERRORS ';
 
 const receiveCurrentUser = user => ({
   type: RECEIVE_CURRENT_USER,
@@ -12,11 +14,22 @@ const logoutCurrentUser = () => ({
   type: LOGOUT_CURRENT_USER,
 });
 
+export const recieveErrors = errors => ({
+  type: RECEIVE_SESSION_ERRORS,
+  errors
+});
+
+export const clearErrors = () => ({
+  type: CLEAR_SESSION_ERRORS 
+});
+
 export const signup = user => dispatch => SessionUtil.signup(user)
-  .then(user => dispatch(receiveCurrentUser(user)));
+  .then(user => dispatch(receiveCurrentUser(user)),
+  errors => dispatch(recieveErrors(errors)));
 
 export const login = user => dispatch => SessionUtil.login(user)
-  .then(user => dispatch(receiveCurrentUser(user)));
+  .then(user => dispatch(receiveCurrentUser(user)),
+  errors => dispatch(recieveErrors(errors)));
 
 export const logout = () => dispatch => SessionUtil.logout()
   .then(() => dispatch(logoutCurrentUser()));

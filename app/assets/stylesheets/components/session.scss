@@ -4,9 +4,7 @@
   flex-direction: column;
   min-height: 125vh;
   background-image: image_url("netflix_background.jpg") ;
-  // min-width: 100vh;
   position: relative;
-  // justify-content: center;
   align-items: center;
   height: 1100px;
 }
@@ -23,9 +21,18 @@
   background-color: black;
 }
 
+.session-header {
+  display: flex;
+  justify-content: space-between;
+  width: 94.5%;
+  position: absolute;
+  top: 18px;
+  align-items: center;
+}
+
 .netflix-logo-session-form {
-  width: 140px;
-  height: 45px;
+  width: 176px;
+  height: 57px;
   filter: brightness(96%);
 }
 
@@ -45,7 +52,6 @@
 .session-input {
   height: 100%;
   width: 100%;
-  // background: lightblue;
 }
 
 .email-input-box, .password-input-box , .username-input-box {

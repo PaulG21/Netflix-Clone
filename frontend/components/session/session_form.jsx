@@ -37,7 +37,7 @@ export default class SessionForm extends React.Component {
           type='text'
           value={this.state.username}
           onChange={this.handleInput('username')}
-          className='username-input-box'
+          className='username-input-box' 
           placeholder='username'
           />
           <label className='username-label'>Username</label>
@@ -55,7 +55,7 @@ export default class SessionForm extends React.Component {
 
     return (
       <div className='session-top-container'> 
-        <div className='splash-header'>
+        <div className='session-header'>
           <a href="#/">
           <img src={window.netflix_logo} className='netflix-logo-session-form' />
           </a>
@@ -69,7 +69,7 @@ export default class SessionForm extends React.Component {
                   type='text'
                   value={this.state.email}
                   onChange={this.handleInput('email')}
-                  className="email-input-box"
+                  className="email-input-box" 
                   placeholder="email"
                 />
                 <label className="email-label">Email</label>
