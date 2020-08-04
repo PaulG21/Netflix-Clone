@@ -5,9 +5,9 @@ import {
 } from '../actions/session';
 
 const errorMessages = {
-  ["Email can't be blank"]: 'email',
   ["Username can't be blank"]: 'username',
-  ["Password is too short (minimum is 6 characters"]: 'password'
+  ["Email can't be blank"]: 'email',
+  ["Password is too short (minimum is 6 characters)"]: 'password'
 };
 
 const sessionErrorsReducer = (oldState = [], action) => {
@@ -18,8 +18,8 @@ const sessionErrorsReducer = (oldState = [], action) => {
   switch (action.type) {
     case RECEIVE_SESSION_ERRORS:
       if (action.errors.responseText === '["Invalid Credentials"]') {
-        newState['email'] = 'Invalid email or password';
-        newState['password'] = 'Invalid email or password';
+        newState['email'] = 'Please enter a valid email.';
+        newState['password'] = 'Your password must contain at least 6 characters.';
       } else {
         action.errors.responseJSON.forEach(error => {
           let key = errorMessages[error];

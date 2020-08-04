@@ -61,10 +61,13 @@
   width: 97%;
   border-radius: 4px;
   font-size: 16px;
-  margin-bottom: 17px;
   padding: 24px 21px 10px;
   color: white;
+  //test
+  margin-top: 16px;
 }
+
+
 
 .email-label, .password-label, .username-label {
   color: #8c8c8c;
@@ -75,7 +78,7 @@
   transform-origin: top left;
   pointer-events: none;
   display: block;
-  top: 0;
+  top: 16px;
   margin-top: 1.5px;
   left: 20px;
   font-weight: lighter;
@@ -83,7 +86,7 @@
 
 .form-title {
   color: #fff;
-  margin-bottom: 28px;
+  margin-bottom: 12px;
   font-size: 32px;;
 }
 
@@ -170,4 +173,26 @@
   width: 100%;
   position: absolute;
   bottom: 0px;
+}
+
+.error-email-container::after, .error-password-container::after, .error-username-container::after {
+ content: '';
+  border-bottom: 2.5px solid #e87c03;
+  height: 7px;
+  width: 97%;
+  top: 61.4%;
+  position: absolute;
+  display: block;
+  border-radius: 4px;
+}
+
+.error-email, .error-password, .error-username{
+  color: #e87c03;
+  margin-bottom: -6px;
+  padding: 6px 3px;
+  display: flex;
+  position: relative;
+  margin-top: 1px;
+  font-size: 13px;
+  font-weight: lighter;
 }

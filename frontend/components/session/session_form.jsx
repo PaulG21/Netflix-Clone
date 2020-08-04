@@ -29,18 +29,41 @@ export default class SessionForm extends React.Component {
     return this.props.login(demoUser)
   };
 
+  componentDidMount() {
+    this.props.clearErrors()
+  }
+
+  // renderErrors() {
+  //   const errorsArray = Object.values(this.props.errors);
+  //   if(errorsArray.length < 1) {
+  //     return null
+  //   } else {
+  //       return (
+  //         <div className='session-errors'>
+  //           {errorsArray.map ((error, i) => (
+  //             <div className='error' key={`error-${i}`}>{error}</div>
+  //           ))}
+  //         </div>
+  //       )
+  //     }
+  // }
 
   render() {
+
+    // const errors = this.renderErrors();
+    const { errors } = this.props
+
     const username = (
-      <div className='username-container'>
+      <div className={errors['username'] ? 'username-container error-username-container' : `username-container`}>
         <input
           type='text'
           value={this.state.username}
           onChange={this.handleInput('username')}
-          className='username-input-box' 
+          className='username-input-box'
           placeholder='username'
           />
           <label className='username-label'>Username</label>
+          <label className='error-email'>{errors['username'] ? errors['username'] : ''}</label>
       </div>);
 
     const loginTag = (
@@ -64,25 +87,27 @@ export default class SessionForm extends React.Component {
           <div className='session-input'>
               <h2 className='form-title'>{formType}</h2>
               {formType === 'Sign Up' ? username : null}
-              <div className='email-container'>
+            <div className={errors['email'] ? 'email-container error-email-container' : `email-container`}>
                 <input
                   type='text'
                   value={this.state.email}
                   onChange={this.handleInput('email')}
-                  className="email-input-box" 
+                  className='email-input-box'
                   placeholder="email"
                 />
                 <label className="email-label">Email</label>
+               <label className='error-email'>{errors['email'] ? errors['email'] : ''}</label>
               </div>
-              <div className='password-container'>
+            <div className={errors['password'] ? 'password-container error-password-container' : `password-container`}>
                 <input
                   type='password'
                   value={this.state.password}
                   onChange={this.handleInput('password')}
-                  className='password-input-box'
+                  className='password-input-box' 
                   placeholder='password'
                 />
                 <label className="password-label">Password</label>
+                <label className="error-password">{errors['password'] ? errors['password'] : ''}</label>
               </div>
               <div className='btn-session-container'>
               <button className='submit-button' type='submit' value={formType}>{formType}</button>
