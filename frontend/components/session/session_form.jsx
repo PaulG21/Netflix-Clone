@@ -33,24 +33,8 @@ export default class SessionForm extends React.Component {
     this.props.clearErrors()
   }
 
-  // renderErrors() {
-  //   const errorsArray = Object.values(this.props.errors);
-  //   if(errorsArray.length < 1) {
-  //     return null
-  //   } else {
-  //       return (
-  //         <div className='session-errors'>
-  //           {errorsArray.map ((error, i) => (
-  //             <div className='error' key={`error-${i}`}>{error}</div>
-  //           ))}
-  //         </div>
-  //       )
-  //     }
-  // }
-
   render() {
 
-    // const errors = this.renderErrors();
     const { errors } = this.props
 
     const username = (

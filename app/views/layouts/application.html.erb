@@ -4,9 +4,26 @@
     <title>NetflixClone</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <script type="text/javascript">
       window.netflix_logo = "<%= image_url('netflix_logo.png') %>";
+      window.John_Wick_3_logo = "<%= image_url('John_Wick_3_Logo.png') %>";
+    </script>
+    
+    <script>
+      window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        if (scrolled > 10) {
+          const element = document.getElementById('browser-id');
+          element.classList.add('browser-header-two');
+          element.classList.remove('browser-header');
+        } 
+        else if (scrolled === 0) {
+          const element = document.getElementById('browser-id');
+          element.classList.add('browser-header');
+          element.classList.remove('browser-header-two');
+        }
+      });
     </script>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>

@@ -15,4 +15,6 @@
 #
 class Movie < ApplicationRecord
   validates :title, :genre, :description, :movie_length, :year, :cast, :content_rating, presence: true
+
+  has_one_attached :movie
 end

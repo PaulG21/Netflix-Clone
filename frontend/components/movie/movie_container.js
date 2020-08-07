@@ -1,9 +1,15 @@
 import { connect } from 'react-redux';
 import MovieForm from './movie_form';
-import { logout } from '../../actions/session'
+import { logout } from '../../actions/session';
+import { fetchMovies } from '../../actions/movie_actions';
 
-const mdtp = dispatch => ({
-  logout: () => dispatch(logout())
+const mstp = state => ({
+  movies: Object.values(state.entities.movies)
 });
 
-export default connect(null, mdtp)(MovieForm);
+const mdtp = dispatch => ({
+  logout: () => dispatch(logout()),
+  fetchMovies: () => dispatch(fetchMovies())
+});
+
+export default connect(mstp, mdtp)(MovieForm);
