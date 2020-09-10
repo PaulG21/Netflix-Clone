@@ -5,6 +5,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta property="og:title" content="Project Title" />
+     <meta property='og:image' content="<%= image_url('project_pic.png') %>"/>
+     <meta property="og:description"
+       content="A brief description of your project."
+     />
+     <meta property="og:url"
+       content="https://nextflixs.herokuapp.com/#/"
+     />
+
     <script type="text/javascript">
       window.netflix_logo = "<%= image_url('netflix_logo.png') %>";
       window.John_Wick_3_logo = "<%= image_url('John_Wick_3_Logo.png') %>";

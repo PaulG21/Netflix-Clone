@@ -4,7 +4,7 @@ import SignupContainer from './session/signup_container';
 import LoginContainer from './session/login_container';
 import SplashContainer from './splash/splash_container';
 import MovieContainer from './movie/movie_container'
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
 export default () => (
   <div>

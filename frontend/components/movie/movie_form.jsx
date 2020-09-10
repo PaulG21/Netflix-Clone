@@ -1,5 +1,6 @@
 import React from 'react';
-
+// left off on working on a custom play button, also figure out how to make the video stop
+// when it is out of view. Thinking use scroll event like (check application.html.erb)
 class MovieForm extends React.Component {
   constructor(props){ 
     super(props);
