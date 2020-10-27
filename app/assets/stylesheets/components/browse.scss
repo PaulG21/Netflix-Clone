@@ -28,7 +28,7 @@
   display: flex;
   background-size: cover;
   flex-direction: column;
-  min-height: 200vh;
+  min-height: 70vh;
   // background-image: image_url("netflix_background.jpg")
   min-width: 100vh;
   position: relative;
@@ -125,4 +125,54 @@
   font-family: Arial, sans-serif;
 }
 
+.navigation-tab a {
+  text-decoration: none;
+  color: #fff;
+}
+
 // left off on working on a custom play button
+
+.placeholder {
+  width: 100%;
+}
+
+// Netflix Carosel
+.row-header-title {
+  display: block;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  line-height: 1.25vw;
+  font-size: 1.4vw;
+  color: #e5e5e5;
+  font-weight: 700;
+  position: relative;
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.slider-container {
+  padding: 0 30px;
+  position: relative;
+  top: -50px;
+}
+
+.movie_thumbnail {
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  padding: 2px;
+  // &:hover { 
+  //   transform: scale(1.5);
+  //   position: relative;
+  // }
+}
+
+.slick-next:before, .slick-prev:before {
+    font-size: 87px;
+    /* line-height: 1; */
+    opacity: .75;
+    color: #fff;
+    position: absolute;
+    right: 0px;
+}
