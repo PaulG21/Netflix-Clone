@@ -162,10 +162,16 @@
   cursor: pointer;
   width: 100%;
   padding: 2px;
-  // &:hover { 
-  //   transform: scale(1.5);
-  //   position: relative;
-  // }
+  &:hover { 
+    // transform: scale(1.5);
+    // position: relative;
+    width: 311px;
+    top: 868px;
+    left: 409px;
+    transform: none;
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
+    opacity: 1;
+  }
 }
 
 .slick-next:before, .slick-prev:before {
