@@ -10,6 +10,7 @@ require 'open-uri'
 
 Movie.destroy_all
 User.destroy_all
+MyList.destroy_all
 
 # DEMO USER
 
