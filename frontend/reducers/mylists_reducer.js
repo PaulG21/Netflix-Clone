@@ -5,10 +5,10 @@ export default (oldstate = {}, action) => {
     Object.freeze(oldstate);
     switch (action.type){
         case myListActions.FETCH_MYLISTS:
-            return action.movies;
-        case myListActions.CREATEMYLIST:
+            return Object.assign({}, state, action.movies)
+        case myListActions.ADDTOMYLIST:
             return Object.assign({}, oldstate, { [action.moviesId.id]: action.moviesId});
-        case myListActions.DELETEMYLIST:
+        case myListActions.REMOVEFROMMYLIST:
             let newstate = merge({}, oldstate);
             delete newstate[action.moviesId];
             return newstate;

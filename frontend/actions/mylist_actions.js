@@ -1,8 +1,8 @@
-import * as myListActions from '../util/mylist_util';
+import * as MyListUtil from '../util/mylist_util';
 
 export const FETCH_MYLISTS = "FETCH_MYLISTS";
-export const CREATEMYLIST = "CREATEMYLIST";
-export const DELETEMYLIST = "DELETEMYLIST";
+export const ADDTOMYLIST = "ADDTOMYLIST";
+export const REMOVEFROMMYLIST = "REMOVEFROMMYLIST";
 
 
 const fetchMyLists = movies => {
@@ -12,28 +12,32 @@ const fetchMyLists = movies => {
     }
 }
 
-const createList = movieId => {
-    return{
-        type: CREATEMYLIST,
+const addToList = movieId => {
+    return {
+        type: ADDTOMYLIST,
         movieId
     }
 }
 
-const deleteList = movieId => {
-    return{
-        type: DELETEMYLIST,
+const removeFromList = movieId => {
+    return {
+        type: REMOVEFROMMYLIST,
         movieId
     }
 }
 
-export const fetchLists = movies => dispatch => {
-    return myListActions.getMyLists(movies).then((movies) => dispatch(fetchMyLists(movies)))
+export const fetchLists = movies => dispatch => (
+    MyListUtil.getMyLists(movies)
+        .then((movies) => dispatch(fetchMyLists(movies)))
+)
+
+export const addToMyList = (movieId) => dispatch => {
+    debugger
+    return MyListUtil.addToMyList(movieId)
+        .then((movie) => dispatch(addToList(movie)))
 }
 
-export const createMyList = (moviesId) => dispatch => {
-    return myListActions.createList(moviesId).then((movie) => dispatch(createList(movie)))
-}
-
-export const deleteMyList = id => dispatch => {
-    return myListActions.deleteMyList(id).then(movieId => dispatch(deleteList(movieId)))
-}
+export const removeFromMyList = id => dispatch => (
+   MyListUtil.removeFromMyList(id)
+    .then(movieId => dispatch(removeFromList(movieId)))
+)

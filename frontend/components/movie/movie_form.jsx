@@ -8,6 +8,7 @@ class MovieForm extends React.Component {
   constructor(props){ 
     super(props);
     this.handleLogout = this.handleLogout.bind(this)
+    this.handleMyList = this.handleMyList.bind(this);
   }
 
   handleLogout(e){
@@ -15,11 +16,23 @@ class MovieForm extends React.Component {
     return this.props.logout();
   }
 
+  handleMyList(movieId){
+    const {mylist, addToMyList, removeFromMyList} = this.props
+    return(e => {
+      debugger
+      e.preventDefault();
+        if (!Object.keys(mylist).includes(movieId.toString())){
+          addToMyList(movieId)
+        }
+        else if (Object.keys(mylist).includes(movieId.toString())) {
+                removeFromMyList(movieId)
+        }
+      })
+    }
+
   componentDidMount() {
     this.props.fetchMovies();
   }
-
-
 
   render(){
 
@@ -44,7 +57,7 @@ class MovieForm extends React.Component {
               {/* <li className='navigation-tab'>TV Shows</li> */}
               {/* <li className='navigation-tab'>Movies</li> */}
               {/* <li className='navigation-tab'>Latest</li> */}
-              <li className='navigation-tab'><a href="#">List</a></li>
+              <li className='navigation-tab'><a href="#/mylist">My List</a></li>
             </ul>
            <div className='navigation-menu-two'>
               <button className='logout-button' onClick={this.handleLogout}>Logout</button>
@@ -52,8 +65,9 @@ class MovieForm extends React.Component {
           </div>
           <div className='movies-container'>
             {/* Content goes here! */}
-            {/* <video className="main-movie" src={movies[1].movie_url} type="video/mp4" autoPlay={true} controls={true}></video> */}
-            <img src={window.john_wick} className="placeholder"/>
+            <video className="main-movie" src={movies[1].movie_url} type="video/mp4" autoPlay={true} controls={true}></video>
+            <button className="mylistbtn" onClick={this.handleMyList(1)}> TEST </button>
+            {/* <img src={window.john_wick} className="placeholder"/> */}
             <img src={window.John_Wick_3_logo} className="john-wick-3-logo" />
             <div className="main-movie-description">Now stuck with a $14 million bounty on his head, Wick must fight his way through the streets of New York.</div>
           </div>

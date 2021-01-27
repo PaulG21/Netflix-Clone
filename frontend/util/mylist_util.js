@@ -5,15 +5,15 @@ export const getMyLists = () => {
     })
 }
 
-export const createList = (videoId) => {
+export const addToMyList = (movieId) => {
     return $.ajax({
         method: 'post',
         url: "api/mylists",
-        data: { videoId }
+        data: { movieId }
     })
 }
 
-export const deleteMyList = (id) => {
+export const removeFromMyList = (id) => {
     return $.ajax({
         method: 'delete',
         url: `api/mylists/${id}`

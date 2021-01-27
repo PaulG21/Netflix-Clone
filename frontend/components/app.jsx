@@ -3,7 +3,9 @@ import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 import SignupContainer from './session/signup_container';
 import LoginContainer from './session/login_container';
 import SplashContainer from './splash/splash_container';
-import MovieContainer from './movie/movie_container'
+import MovieContainer from './movie/movie_container';
+import MyListContainer from './mylist/mylist_container';
+
 import { Switch } from 'react-router-dom';
 
 export default () => (
@@ -12,6 +14,7 @@ export default () => (
     <AuthRoute path="/signup" component={SignupContainer} />
     <AuthRoute path="/login" component={LoginContainer} />
     <ProtectedRoute path="/browse" component={MovieContainer} />
+    <ProtectedRoute path="/mylist" component={MyListContainer} />
     <AuthRoute path="/" component={SplashContainer} />
     </Switch>
   </div>
