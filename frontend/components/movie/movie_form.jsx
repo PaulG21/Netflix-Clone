@@ -18,13 +18,13 @@ class MovieForm extends React.Component {
 
   handleMyList(movieId){
     const {mylist, addToMyList, removeFromMyList} = this.props
+    debugger
     return(e => {
-      debugger
       e.preventDefault();
-        if (!Object.keys(mylist).includes(movieId.toString())){
+        if (!Object.keys(mylist).includes(movieId)){
           addToMyList(movieId)
         }
-        else if (Object.keys(mylist).includes(movieId.toString())) {
+        else if (Object.keys(mylist).includes(movieId)) {
                 removeFromMyList(movieId)
         }
       })
@@ -32,10 +32,11 @@ class MovieForm extends React.Component {
 
   componentDidMount() {
     this.props.fetchMovies();
+    this.props.fetchMyLists();
   }
 
   render(){
-
+    
     const { movies } = this.props;
     const settings = {
       centerMode: true,
@@ -44,6 +45,7 @@ class MovieForm extends React.Component {
       slidesToScroll: 6,
     };
      
+    debugger
     if (movies.length === 0) {
       return null;
     } 
@@ -66,7 +68,7 @@ class MovieForm extends React.Component {
           <div className='movies-container'>
             {/* Content goes here! */}
             <video className="main-movie" src={movies[1].movie_url} type="video/mp4" autoPlay={true} controls={true}></video>
-            <button className="mylistbtn" onClick={this.handleMyList(1)}> TEST </button>
+            <button className="mylistbtn" onClick={this.handleMyList(movies[1].id)}> TEST </button>
             {/* <img src={window.john_wick} className="placeholder"/> */}
             <img src={window.John_Wick_3_logo} className="john-wick-3-logo" />
             <div className="main-movie-description">Now stuck with a $14 million bounty on his head, Wick must fight his way through the streets of New York.</div>

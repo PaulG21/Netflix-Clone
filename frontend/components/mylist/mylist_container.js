@@ -15,7 +15,7 @@ const mstp = state => {
 
 const mdtp = dispatch => {
     return ({
-        fetchLists: () => dispatch(mylistActions.fetchLists()),
+        fetchLists: () => dispatch(mylistActions.fetchMyLists()),
         removeFromMyList: (moviesId) => dispatch(mylistActions.removeFromMyList(moviesId)),
         fetchMovies: () => dispatch(fetchMovies()),
         logout: () => dispatch(logout()),

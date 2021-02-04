@@ -6,7 +6,7 @@ import myListReducer from './mylists_reducer';
 const entitiesReducer = combineReducers({
   users: userReducer,
   movies: movieReducer,
-  mylists: myListReducer,
+  mylist: myListReducer,
 });
 
 export default entitiesReducer;
