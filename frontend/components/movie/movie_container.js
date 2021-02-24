@@ -11,7 +11,6 @@ const mstp = state => ({
 });
 
 const mdtp = dispatch => {
-  debugger
   return {
   logout: () => dispatch(logout()),
   addToMyList: (movieId) => dispatch(addToMyList(movieId)), 

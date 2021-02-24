@@ -5,15 +5,12 @@ class Api::MylistsController < ApplicationController
     end
 
     def index
-        # debugger
-        @mylists = MyList.where(user_id: current_user.id) #SQL query
+        @mylists = MyList.where(user_id: current_user.id)
         if @mylists
             render :index
         else
             render json: {message: "My List is empty"}, status: 400
         end
-
-        # @mylists = MyList.all
     end
 
     def create
@@ -27,7 +24,10 @@ class Api::MylistsController < ApplicationController
     end
 
     def destroy
-        @mylist = current_user.my_list.find_by(movie_id: params[:id])
+        # debugger
+        # @mylist = current_user.my_list.find_by(movie_id: params[:id]) #HELP
+        # @mylist = MyList.where(user_id: current_user.id, movie_id: params[:id])
+        @mylist = MyList.find_by(user_id: current_user.id, movie_id: params[:id])
         if @mylist
             @mylist.destroy
             render :index

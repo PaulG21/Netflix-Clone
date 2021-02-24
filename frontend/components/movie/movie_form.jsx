@@ -7,8 +7,9 @@ import Slider from 'react-slick';
 class MovieForm extends React.Component {
   constructor(props){ 
     super(props);
-    this.handleLogout = this.handleLogout.bind(this)
+    this.handleLogout = this.handleLogout.bind(this);
     this.handleMyList = this.handleMyList.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleLogout(e){
@@ -16,16 +17,21 @@ class MovieForm extends React.Component {
     return this.props.logout();
   }
 
+  handleDelete(movieId){
+    const {removeFromMyList} = this.props
+    return removeFromMyList(movieId)
+  }
+
   handleMyList(movieId){
     const {mylist, addToMyList, removeFromMyList} = this.props
-    debugger
+
     return(e => {
       e.preventDefault();
         if (!Object.keys(mylist).includes(movieId)){
           addToMyList(movieId)
         }
         else if (Object.keys(mylist).includes(movieId)) {
-                removeFromMyList(movieId)
+          removeFromMyList(movieId)
         }
       })
     }
@@ -45,7 +51,7 @@ class MovieForm extends React.Component {
       slidesToScroll: 6,
     };
      
-    debugger
+
     if (movies.length === 0) {
       return null;
     } 
@@ -69,6 +75,7 @@ class MovieForm extends React.Component {
             {/* Content goes here! */}
             <video className="main-movie" src={movies[1].movie_url} type="video/mp4" autoPlay={true} controls={true}></video>
             <button className="mylistbtn" onClick={this.handleMyList(movies[1].id)}> TEST </button>
+            <button className="mylistbtn" onClick={this.handleDelete(movies[1].id)}> DELETE </button>
             {/* <img src={window.john_wick} className="placeholder"/> */}
             <img src={window.John_Wick_3_logo} className="john-wick-3-logo" />
             <div className="main-movie-description">Now stuck with a $14 million bounty on his head, Wick must fight his way through the streets of New York.</div>

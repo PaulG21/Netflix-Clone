@@ -13,7 +13,6 @@ const receiveMyLists = movies => {
 }
 
 const addToList = movieId => {
-    debugger
     return {
         type: ADDTOMYLIST,
         movieId
