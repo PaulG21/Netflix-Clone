@@ -15,6 +15,7 @@ export const addToMyList = (movieId) => (
 export const removeFromMyList = (id) => (
     $.ajax({
         method: 'DELETE',
-        url: `api/mylists/${id}`
+        url: `api/mylists/${id}`,
+        // data: { id }
     })
 )

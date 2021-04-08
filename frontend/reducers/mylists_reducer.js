@@ -4,13 +4,13 @@ import { merge } from 'lodash';
 export default (state = {}, action) => {
     Object.freeze(state);
     switch (action.type){
-        case myListActions.RECEIVE_ALL_MY_LIST:
+        case myListActions.RECEIVE_ALL_MYLIST:
             return Object.assign({}, state, action.movies)
-        case myListActions.ADDTOMYLIST:
-            return Object.assign({}, state, { [action.moviesId.id]: action.moviesId});
-        case myListActions.REMOVEFROMMYLIST:
+        case myListActions.ADD_TO_MY_LIST:
+            return Object.assign({}, state, { [action.movieId.id]: action.movieId });
+        case myListActions.REMOVE_FROM_MY_LIST:
             let newstate = merge({}, state);
-            delete newstate[action.moviesId];
+            delete newstate[action.movieId.id];
             return newstate;
         default:
             return state;

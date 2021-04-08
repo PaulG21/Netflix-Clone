@@ -16,7 +16,7 @@
 class Movie < ApplicationRecord
   validates :title, :genre, :description, :movie_length, :year, :cast, :content_rating, presence: true
 
-  belongs_to :mylists,
+  belongs_to :mylist,
     foreign_key: :movie_id,
     class_name: :MyList
 

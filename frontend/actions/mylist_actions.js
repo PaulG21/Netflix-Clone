@@ -1,27 +1,27 @@
 import * as MyListUtil from '../util/mylist_util';
 
-export const RECEIVE_ALL_MY_LIST = "RECEIVE_ALL_MY_LIST";
-export const ADDTOMYLIST = "ADDTOMYLIST";
-export const REMOVEFROMMYLIST = "REMOVEFROMMYLIST";
+export const RECEIVE_ALL_MYLIST = "RECEIVE_ALL_MYLIST";
+export const ADD_TO_MY_LIST = "ADD_TO_MYLIST";
+export const REMOVE_FROM_MY_LIST = "REMOVE_FROM_MYLIST";
 
 
 const receiveMyLists = movies => {
     return {
-        type: RECEIVE_ALL_MY_LIST,
+        type: RECEIVE_ALL_MYLIST,
         movies
     }
 }
 
 const addToList = movieId => {
     return {
-        type: ADDTOMYLIST,
+        type: ADD_TO_MY_LIST,
         movieId
     }
 }
 
 const removeFromList = movieId => {
     return {
-        type: REMOVEFROMMYLIST,
+        type: REMOVE_FROM_MY_LIST,
         movieId
     }
 }

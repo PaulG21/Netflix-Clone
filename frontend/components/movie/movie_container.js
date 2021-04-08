@@ -7,7 +7,7 @@ import { addToMyList, removeFromMyList, fetchMyLists } from '../../actions/mylis
 const mstp = state => ({
   currentUser: state.entities.users[state.session.currentUser.id], 
   movies: Object.values(state.entities.movies),
-  mylist: state.entities.mylist,
+  mylist: Object.values(state.entities.mylist),
 });
 
 const mdtp = dispatch => {

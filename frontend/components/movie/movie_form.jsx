@@ -9,7 +9,7 @@ class MovieForm extends React.Component {
     super(props);
     this.handleLogout = this.handleLogout.bind(this);
     this.handleMyList = this.handleMyList.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
+    this.handleGenIcon = this.handleGenIcon.bind(this);
   }
 
   handleLogout(e){
@@ -17,24 +17,29 @@ class MovieForm extends React.Component {
     return this.props.logout();
   }
 
-  handleDelete(movieId){
-    const {removeFromMyList} = this.props
-    return removeFromMyList(movieId)
-  }
-
   handleMyList(movieId){
     const {mylist, addToMyList, removeFromMyList} = this.props
+    const all_movieId = mylist.map(list => (list.movie_id));
 
     return(e => {
       e.preventDefault();
-        if (!Object.keys(mylist).includes(movieId)){
-          addToMyList(movieId)
+        if (!all_movieId.includes(movieId)){
+          addToMyList(movieId);
         }
-        else if (Object.keys(mylist).includes(movieId)) {
-          removeFromMyList(movieId)
+        else if (all_movieId.includes(movieId)) {
+          removeFromMyList(movieId);
         }
       })
-    }
+    };
+
+  handleGenIcon(movieId) {
+    const {mylist} = this.props
+    const all_movieId = mylist.map(list => (list.movie_id));
+
+    // "ADD" and "DELETE" are place holders add icons later
+    if (all_movieId.includes(movieId)) return (<div className="mylistbtn">DELETE</div>)
+    else return (<div className="mylistbtn">ADD</div>);
+  }
 
   componentDidMount() {
     this.props.fetchMovies();
@@ -74,8 +79,7 @@ class MovieForm extends React.Component {
           <div className='movies-container'>
             {/* Content goes here! */}
             <video className="main-movie" src={movies[1].movie_url} type="video/mp4" autoPlay={true} controls={true}></video>
-            <button className="mylistbtn" onClick={this.handleMyList(movies[1].id)}> TEST </button>
-            <button className="mylistbtn" onClick={this.handleDelete(movies[1].id)}> DELETE </button>
+            <button className="mylistbtn" onClick={this.handleMyList(movies[1].id)}> {this.handleGenIcon(movies[1].id)} </button>
             {/* <img src={window.john_wick} className="placeholder"/> */}
             <img src={window.John_Wick_3_logo} className="john-wick-3-logo" />
             <div className="main-movie-description">Now stuck with a $14 million bounty on his head, Wick must fight his way through the streets of New York.</div>

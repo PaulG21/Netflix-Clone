@@ -1,9 +1,10 @@
 import React from 'react';
 
-class Mylist extends React.Component{
+class Mylist extends React.Component {
     constructor(props) {
         super(props);
-        this.handleLogout = this.handleLogout.bind(this)
+        this.handleLogout = this.handleLogout.bind(this);
+        this.handleAllList = this.handleAllList.bind(this);
     }
 
     handleLogout(e){
@@ -11,44 +12,51 @@ class Mylist extends React.Component{
         return this.props.logout();
     }
 
-    render(){
+    handleAllList(movieId) {
+        const { movies } = this.props;
 
-        let lists = [];
-        const currentUser = this.props.currentUser;
-
-        this.props.mylist.forEach(list => {
-            if (list.user_id === parseInt(currentUser.id)){
-                this.props.movies.forEach(movie => {
-                    if (movie.id === list.movie_id){
-                        lists.push(movie);
-                    }
-                })
+        for (let i = 0; i < movies.length; i++) {
+            if (movies[i].id === movieId) {
+                return <li key={i}><video className="indv-movie" src={movies[i].movie_url} type="video/mp4" autoPlay={false} controls={true}></video></li>  
             }
-        })
-
-        return (
-        <div>
-            <div className='browser-container'> 
-                <div id='browser-id' className='browser-header'>
-                    <a href="#"><img src={window.netflix_logo} className="netflix-logo-browser" /></a>
-                        <ul className='navigation-menu'>
-                            <li className='navigation-tab'><a href="#">Home</a></li>
-                            <li className='navigation-tab'><a href="#">My List</a></li>
-                        </ul>
-                    <div className='navigation-menu-two'>
-                        <button className='logout-button' onClick={this.handleLogout}>Logout</button>
-                    </div>
-                </div>
-            </div>
-      </div>
-        )
-
-
-
+         } 
 
     }
 
+    componentDidMount() {
+        this.props.fetchLists();
+    }
+
+    render(){
+        
+        const {mylist} = this.props;
+        const allListId = mylist.map(list => (list.movie_id))
+
+        return (
+            <div>
+                <div className='browser-container'> 
+                    <div id='browser-id' className='browser-header'>
+                        <a href="#"><img src={window.netflix_logo} className="netflix-logo-browser" /></a>
+                             <ul className='navigation-menu'>
+                                 <li className='navigation-tab'><a href="#">Home</a></li>
+                                    <li className='navigation-tab'><a href="#">My List</a></li>
+                             </ul>
+                        < div className='navigation-menu-two'>
+                            <button className='logout-button' onClick={this.handleLogout}>Logout</button>
+                        </div>
+                    </div>
+                    <ul> 
+                        {allListId.map(movieId => (this.handleAllList(movieId)))}
+                    </ul>
+                </div>
+
+            </div>
+        )
+    }
 
 }
 
 export default Mylist;
+
+
+
