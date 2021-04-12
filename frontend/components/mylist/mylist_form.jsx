@@ -17,7 +17,7 @@ class Mylist extends React.Component {
 
         for (let i = 0; i < movies.length; i++) {
             if (movies[i].id === movieId) {
-                return <li key={i}><video className="indv-movie" src={movies[i].movie_url} type="video/mp4" autoPlay={false} controls={true}></video></li>  
+                return <li key={i}><video className="mylist-movie" src={movies[i].movie_url} type="video/mp4" autoPlay={false} controls={true}></video></li>  
             }
          } 
 
@@ -34,20 +34,24 @@ class Mylist extends React.Component {
 
         return (
             <div>
-                <div className='browser-container'> 
+                <div className='mylist-container'> 
                     <div id='browser-id' className='browser-header'>
                         <a href="#"><img src={window.netflix_logo} className="netflix-logo-browser" /></a>
-                             <ul className='navigation-menu'>
-                                 <li className='navigation-tab'><a href="#">Home</a></li>
-                                    <li className='navigation-tab'><a href="#">My List</a></li>
-                             </ul>
-                        < div className='navigation-menu-two'>
+                            <ul className='navigation-menu'>
+                                <li className='navigation-tab'><a href="#">Home</a></li>
+                                <li className='navigation-tab'><a href="#">My List</a></li>
+                            </ul>
+                        <div className='navigation-menu-two'>
                             <button className='logout-button' onClick={this.handleLogout}>Logout</button>
                         </div>
                     </div>
-                    <ul> 
-                        {allListId.map(movieId => (this.handleAllList(movieId)))}
-                    </ul>
+                    <div className='movielist-container'>
+                        <div className='mylist-title'> My List
+                            <ul className="mylist-index"> 
+                                {allListId.map(movieId => (this.handleAllList(movieId)))}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
             </div>

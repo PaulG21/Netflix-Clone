@@ -1,5 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
+import { FiPlusCircle } from "react-icons/fi";
+import { FaRegCheckCircle } from "react-icons/fa";
 
 
 // left off on working on a custom play button, also figure out how to make the video stop
@@ -36,9 +38,8 @@ class MovieForm extends React.Component {
     const {mylist} = this.props
     const all_movieId = mylist.map(list => (list.movie_id));
 
-    // "ADD" and "DELETE" are place holders add icons later
-    if (all_movieId.includes(movieId)) return (<div className="mylistbtn">DELETE</div>)
-    else return (<div className="mylistbtn">ADD</div>);
+    if (all_movieId.includes(movieId)) return (<FaRegCheckCircle size= {20}/>)
+    else return (<FiPlusCircle size= {20}/>);
   }
 
   componentDidMount() {
@@ -78,8 +79,8 @@ class MovieForm extends React.Component {
           </div>
           <div className='movies-container'>
             {/* Content goes here! */}
-            <video className="main-movie" src={movies[1].movie_url} type="video/mp4" autoPlay={true} controls={true}></video>
-            <button className="mylistbtn" onClick={this.handleMyList(movies[1].id)}> {this.handleGenIcon(movies[1].id)} </button>
+            <video className="main-movie" src={movies[1].movie_url} type="video/mp4" autoPlay={true} controls={false}></video>
+            <div className="mylistbtn" onClick={this.handleMyList(movies[1].id)}> {this.handleGenIcon(movies[1].id)} </div>
             {/* <img src={window.john_wick} className="placeholder"/> */}
             <img src={window.John_Wick_3_logo} className="john-wick-3-logo" />
             <div className="main-movie-description">Now stuck with a $14 million bounty on his head, Wick must fight his way through the streets of New York.</div>
@@ -91,7 +92,7 @@ class MovieForm extends React.Component {
         <div className= "row-header-title"> Popular on Netflix </div>
           <Slider {...settings}>
             <div>
-              <img src={window.blacklist} className="movie_thumbnail"/>
+              <img src={window.blacklist} className="movie_thumbnail" />
             </div>
             <div>
               <img src={window.emily_in_paris} className="movie_thumbnail"/>

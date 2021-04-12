@@ -1,0 +1,38 @@
+.mylist-container {
+  display: flex;
+  background-size: cover;
+  min-height: 70vh;
+  min-width: 100vh;
+  position: relative;
+}
+
+.movielist-container {
+  display: flex;
+  position: absolute;
+  top: 100px;
+  padding: 0px 4%;
+}
+
+.mylist-title {
+  font-size: 1.5rem;
+  display: inline-block;
+  margin-right: 20px;
+  line-height: 36px;
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color: white;
+  margin-top: -12%;
+  
+}
+.mylist-movie {
+  width: 226px;
+  height: 127px;
+  margin-left: 4px;
+}
+
+.mylist-index {
+  list-style-type: none;
+  display: flex;
+  position: absolute;
+  flex-direction: row; 
+  margin-top: 20%;
+}
